@@ -1,15 +1,17 @@
-import sumar from "./sumador";
+import obtenerSaludo from "./saludador";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
+const form = document.querySelector("#saludador-form");
 const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+  const nombre = document.querySelector("#nombre").value;
+  const edad = parseInt(document.querySelector("#edad").value);
+  const genero = document.querySelector("#genero").value;
+  const idioma = document.querySelector("#idioma").value;
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  const mensaje = obtenerSaludo(nombre, genero, edad, idioma);
+  
+  div.innerHTML = `<p>${mensaje}</p>`;
 });
